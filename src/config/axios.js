@@ -1,7 +1,8 @@
 import axios from "axios";
+import { BACKEND_URL } from "./env";
 import { getAccessToken, removeAccessToken } from "../utils/local-storage";
 
-axios.defaults.baseURL = "http://localhost:8880";
+axios.defaults.baseURL = BACKEND_URL;
 
 axios.interceptors.request.use((config) => {
   const token = getAccessToken();

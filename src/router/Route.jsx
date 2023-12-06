@@ -1,8 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import LoginPage from "../pages/LoginPage";
 import HomePage from "../pages/HomePage";
+import RegisterPage from "../pages/RegisterPage";
 import RedirectIfAuthenticate from "../authenticate/RedirectIfAuthenticate";
-import { Outlet } from "react-router-dom";
+import UserAuthenticate from "../authenticate/UserAuthenticate";
 
 const router = createBrowserRouter([
   {
@@ -12,11 +14,19 @@ const router = createBrowserRouter([
         <Outlet />
       </RedirectIfAuthenticate>
     ),
-    children: [{ path: "/", element: <LoginPage /> }],
+    children: [
+      { path: "/", element: <LoginPage /> },
+      { path: "/register", element: <RegisterPage /> },
+    ],
   },
   {
-    path: "/homepage",
-    element: <HomePage />,
+    path: "/",
+    element: (
+      <UserAuthenticate>
+        <Outlet />
+      </UserAuthenticate>
+    ),
+    children: [{ path: "/homepage", element: <HomePage /> }],
   },
 ]);
 

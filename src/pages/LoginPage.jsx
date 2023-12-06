@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Joi from "joi";
 import Input from "../component/Input";
 import { useContext } from "react";
@@ -89,6 +89,12 @@ function LoginPage() {
             SIGN IN
           </button>
         </form>
+        <div>
+          Don't have an account?{" "}
+          <Link to="/register" className="text-blue-600">
+            Register here
+          </Link>
+        </div>
       </div>
     </div>
   );

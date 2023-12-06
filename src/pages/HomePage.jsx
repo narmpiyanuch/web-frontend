@@ -31,7 +31,7 @@ function HomePage() {
     }
   };
   return (
-    <div className="max-md:flex flex-col space-y-2">
+    <div className="max-md:flex flex-col">
       <div className="flex justify-end bg-orange-100">
         <div className="flex p-4 text-xl">Hello {member?.memberName}</div>
         <button className="p-4 text-sm" onClick={() => setIsOpen(true)}>
@@ -57,7 +57,7 @@ function HomePage() {
           onClose={() => setOpenLocation(false)}
         />
       </div>
-      <div className="flex flex-col py-4 px-20 gap-4 items-center h-[40vh]">
+      <div className="flex flex-col py-4 px-20 gap-4 items-center">
         {allShop?.map((item) => (
           <Banner
             key={item.id}
@@ -71,8 +71,8 @@ function HomePage() {
           />
         ))}
       </div>
-      <div className="flex justify-start pl-6 pb-4">
-        <div className="h-[400px] w-[600px]">
+      <div className="flex justify-start pl-6">
+        <div className="h-[300px] w-[400px]">
           <div className="h-[100%] overflow-hidden rounded-xl border">
             <Map />
           </div>

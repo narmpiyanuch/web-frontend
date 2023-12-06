@@ -3,7 +3,7 @@ import beautyshop from "../image/beauty-shop.jpg";
 import women from "../image/women.jpg";
 import ModalCancel from "./ModalCancel";
 
-function Banner({ key, name, detail, id }) {
+function Banner({ name, detail, id }) {
   const [isDelete, setIsDelete] = useState(false);
 
   return (
@@ -25,7 +25,6 @@ function Banner({ key, name, detail, id }) {
       <div className="flex flex-col justify-end items-center">
         <button onClick={() => setIsDelete(true)}>delete</button>
         <ModalCancel
-          key={id}
           id={id}
           open={isDelete}
           onClose={() => setIsDelete(false)}
